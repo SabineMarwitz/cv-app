@@ -1,7 +1,12 @@
-const CV = ({ data }) => {
+const CV = ({ general, education }) => {
   return (
     <>
-      <button onClick={() => console.log(data.name, data.email, data.phone)}>
+      <button
+        onClick={() => {
+          console.log(general.name, general.email, general.phone);
+          console.log(education.date, education.school, education.study);
+        }}
+      >
         Submit
       </button>
     </>

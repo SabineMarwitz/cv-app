@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import General from './components/General.jsx';
+import Education from './components/Education.jsx';
 import CV from './components/CV.jsx';
 
 function App() {
@@ -10,6 +11,12 @@ function App() {
     phone: 'phone',
   });
 
+  const [education, setEducation] = useState({
+    school: ' ',
+    study: ' ',
+    date: ' ',
+  });
+
   return (
     <>
       <h1>CV Application</h1>
@@ -17,7 +24,11 @@ function App() {
         data={generalData}
         updateData={(generalData) => setGeneralData(generalData)}
       />
-      <CV data={generalData} />
+      <Education
+        data={education}
+        updateData={(education) => setEducation(education)}
+      />
+      <CV general={generalData} education={education} />
     </>
   );
 }
