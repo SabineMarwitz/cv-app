@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import General from './components/General.jsx';
 import Education from './components/Education.jsx';
+import Experience from './components/Experience.jsx';
 import CV from './components/CV.jsx';
 
 function App() {
@@ -17,6 +18,13 @@ function App() {
     date: ' ',
   });
 
+  const [experience, setExperience] = useState({
+    company: ' ',
+    position: ' ',
+    resposibilities: ' ',
+    date: ' ',
+  });
+
   return (
     <>
       <h1>CV Application</h1>
@@ -28,7 +36,11 @@ function App() {
         data={education}
         updateData={(education) => setEducation(education)}
       />
-      <CV general={generalData} education={education} />
+      <Experience
+        data={experience}
+        updateData={(experience) => setExperience(experience)}
+      />
+      <CV general={generalData} education={education} experience={experience} />
     </>
   );
 }

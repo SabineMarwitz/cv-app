@@ -9,7 +9,7 @@ const Education = ({ data, updateData }) => {
 
   return (
     <form>
-      <legend>Education Experience</legend>
+      <legend>Educational Experience</legend>
       <div>
         <label>School Name: </label>
         <input
