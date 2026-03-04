@@ -25,7 +25,13 @@ function App() {
     date: ' ',
   });
 
+  const [educationList, setEducationList] = useState([]);
+
   const [experienceList, setExperienceList] = useState([]);
+
+  const submitEducation = (education) => () => {
+    setEducationList([...educationList, education]);
+  };
 
   const submitExperience = (experience) => () => {
     setExperienceList([...experienceList, experience]);
@@ -42,15 +48,20 @@ function App() {
         data={education}
         updateData={(education) => setEducation(education)}
       />
+      <button key='education' onClick={submitEducation(education)}>
+        Submit
+      </button>
       <Experience
         data={experience}
         updateData={(experience) => setExperience(experience)}
       />
-      <button onClick={submitExperience(experience)}>Submit</button>
+      <button key='experience' onClick={submitExperience(experience)}>
+        Submit
+      </button>
       <h2>Your CV starts here</h2>
       <CV
         general={generalData}
-        education={education}
+        educationList={educationList}
         experienceList={experienceList}
       />
     </>
