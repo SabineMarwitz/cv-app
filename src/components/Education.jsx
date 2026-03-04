@@ -11,6 +11,16 @@ const Education = ({ data, updateData }) => {
     <form>
       <legend>Educational Experience</legend>
       <div>
+        <label>Date of Study: </label>
+        <input
+          type='text'
+          name='date'
+          size='30'
+          value={data.date}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
         <label>School Name: </label>
         <input
           type='text'
@@ -27,16 +37,6 @@ const Education = ({ data, updateData }) => {
           name='study'
           size='30'
           value={data.study}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>Date of Study: </label>
-        <input
-          type='text'
-          name='date'
-          size='30'
-          value={data.date}
           onChange={handleChange}
         />
       </div>

@@ -1,12 +1,25 @@
 const Experience = ({ data, updateData }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
-    updateData({ ...data, [name]: value });
+    updateData({
+      ...data,
+      [name]: value,
+    });
   };
 
   return (
     <form>
       <legend>Practical Experience</legend>
+      <div>
+        <label>Date from to : </label>
+        <input
+          type='text'
+          name='date'
+          size='30'
+          value={data.date}
+          onChange={handleChange}
+        />
+      </div>
       <div>
         <label>Company Name: </label>
         <input
@@ -18,7 +31,7 @@ const Experience = ({ data, updateData }) => {
         />
       </div>
       <div>
-        <label>Title of Position: </label>
+        <label>Position Title: </label>
         <input
           type='text'
           name='position'
@@ -28,22 +41,12 @@ const Experience = ({ data, updateData }) => {
         />
       </div>
       <div>
-        <label>Main responsibilities: </label>
+        <label>Responsibilities: </label>
         <input
           type='text'
-          name='resposibilities'
+          name='responsibilities'
           size='30'
-          value={data.resposibilities}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>Date from to: </label>
-        <input
-          type='text'
-          name='date'
-          size='30'
-          value={data.date}
+          value={data.responsibilities}
           onChange={handleChange}
         />
       </div>
