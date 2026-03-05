@@ -48,24 +48,31 @@ function App() {
       <h1>CV Application</h1>
       {edit && (
         <div className='formContainer'>
-          <General
-            data={generalData}
-            updateData={(generalData) => setGeneralData(generalData)}
-          />
-          <Education
-            data={education}
-            updateData={(education) => setEducation(education)}
-          />
-          <button key='education' onClick={submitEducation(education)}>
-            Submit
-          </button>
-          <Experience
-            data={experience}
-            updateData={(experience) => setExperience(experience)}
-          />
-          <button key='experience' onClick={submitExperience(experience)}>
-            Submit
-          </button>
+          <article>
+            <General
+              data={generalData}
+              updateData={(generalData) => setGeneralData(generalData)}
+            />
+          </article>
+          <article>
+            <Education
+              data={education}
+              updateData={(education) => setEducation(education)}
+            />
+            <button key='education' onClick={submitEducation(education)}>
+              Submit
+            </button>
+          </article>
+          <article>
+            <Experience
+              data={experience}
+              updateData={(experience) => setExperience(experience)}
+            />
+            <button key='experience' onClick={submitExperience(experience)}>
+              Submit
+            </button>
+          </article>
+
           <p>Click the button below to get your resume!</p>
           <button onClick={handleClick}>{edit ? 'Show' : 'Edit'}</button>
         </div>

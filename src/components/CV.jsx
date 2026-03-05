@@ -4,11 +4,11 @@ import CVExperience from './CVExperience.jsx';
 
 const CV = ({ general, educationList, experienceList }) => {
   return (
-    <>
+    <article>
       <CVGeneral data={general} />
       <CVEducation data={educationList} />
       <CVExperience data={experienceList} />
-    </>
+    </article>
   );
 };
 
