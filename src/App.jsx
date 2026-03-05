@@ -6,6 +6,8 @@ import Experience from './components/Experience.jsx';
 import CV from './components/CV.jsx';
 
 function App() {
+  const [edit, setEdit] = useState(false);
+
   const [generalData, setGeneralData] = useState({
     name: 'name',
     email: 'name@com',
@@ -37,33 +39,47 @@ function App() {
     setExperienceList([...experienceList, experience]);
   };
 
+  function handleClick() {
+    setEdit(!edit);
+  }
+
   return (
     <>
       <h1>CV Application</h1>
-      <General
-        data={generalData}
-        updateData={(generalData) => setGeneralData(generalData)}
-      />
-      <Education
-        data={education}
-        updateData={(education) => setEducation(education)}
-      />
-      <button key='education' onClick={submitEducation(education)}>
-        Submit
-      </button>
-      <Experience
-        data={experience}
-        updateData={(experience) => setExperience(experience)}
-      />
-      <button key='experience' onClick={submitExperience(experience)}>
-        Submit
-      </button>
-      <h2>Your CV starts here</h2>
-      <CV
-        general={generalData}
-        educationList={educationList}
-        experienceList={experienceList}
-      />
+      {edit && (
+        <div className='formContainer'>
+          <General
+            data={generalData}
+            updateData={(generalData) => setGeneralData(generalData)}
+          />
+          <Education
+            data={education}
+            updateData={(education) => setEducation(education)}
+          />
+          <button key='education' onClick={submitEducation(education)}>
+            Submit
+          </button>
+          <Experience
+            data={experience}
+            updateData={(experience) => setExperience(experience)}
+          />
+          <button key='experience' onClick={submitExperience(experience)}>
+            Submit
+          </button>
+          <p>Click the button below to get your resume!</p>
+          <button onClick={handleClick}>{edit ? 'Show' : 'Edit'}</button>
+        </div>
+      )}
+      {!edit && (
+        <div className='cvContainer'>
+          <CV
+            general={generalData}
+            educationList={educationList}
+            experienceList={experienceList}
+          />
+          <button onClick={handleClick}>{edit ? 'Show' : 'Edit'}</button>
+        </div>
+      )}
     </>
   );
 }
